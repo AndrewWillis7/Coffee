@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "Coffee/Application.h"
+#include "Coffee/Log.h"
 
 // -------------------- ENTRY POINT -------------------------- //
 #include "Coffee/EntryPoint.h"
