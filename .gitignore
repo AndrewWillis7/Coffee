@@ -1,0 +1,9 @@
+# Ignore Directories
+
+.vs/
+bin/
+bin-int/
+
+# Ignore Files
+
+*.user
