@@ -8,7 +8,7 @@ workspace "CoffeeEngine"
         "Dist"
     }
 
-outputdir = "%{cf.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "Coffee"
     location "Coffee"
@@ -24,7 +24,7 @@ project "Coffee"
         "%{prj.name}/src/**.cpp"
     }
 
-    include
+    includedirs
     {
         "%{prj.name}/vendor/spdlog/include"
     }
@@ -42,7 +42,7 @@ project "Coffee"
 
         postbuildcommands
         {
-            {"{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"}
+            {"{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox"}
         }
 
     filter "configurations:Debug"
@@ -71,7 +71,7 @@ project "Sandbox"
         "%{prj.name}/src/**.cpp"
     }
 
-    include
+    includedirs
     {
         "%{prj.name}/vendor/spdlog/include",
         "Coffee/src"
