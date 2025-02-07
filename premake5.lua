@@ -1,5 +1,6 @@
 workspace "CoffeeEngine"
     architecture "x64"
+    startproject "Sandbox"
 
     configurations
     {
@@ -27,6 +28,11 @@ project "Coffee"
     includedirs
     {
         "%{prj.name}/vendor/spdlog/include"
+    }
+
+    buildoptions
+    {
+        "/utf-8"
     }
 
     filter "system:windows"
@@ -73,13 +79,18 @@ project "Sandbox"
 
     includedirs
     {
-        "%{prj.name}/vendor/spdlog/include",
+        "Coffee/vendor/spdlog/include",
         "Coffee/src"
     }
 
     links 
     {
         "Coffee"
+    }
+
+    buildoptions
+    {
+        "/utf-8"
     }
 
     filter "system:windows"
